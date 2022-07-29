@@ -7,9 +7,8 @@ public class Empleado {
     String nombre;
     int edad;
     double sueldo;
-    String horarioE;
     String num_RRHH;
-    String estado_dia;
+    boolean estado_dia;
     
     
     // Constructores
@@ -17,17 +16,16 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(String nombre, int edad, String estado_dia) {
+    public Empleado(String nombre, int edad, boolean estado_dia) {
         this.nombre = nombre;
         this.edad = edad;
         this.estado_dia = estado_dia;
     }
 
-    public Empleado(String nombre, int edad, double sueldo, String horarioE, String num_RRHH, String estado_dia) {
+    public Empleado(String nombre, int edad, double sueldo, String num_RRHH, boolean estado_dia) {
         this.nombre = nombre;
         this.edad = edad;
         this.sueldo = sueldo;
-        this.horarioE = horarioE;
         this.num_RRHH = num_RRHH;
         this.estado_dia = estado_dia;
     }
@@ -59,14 +57,6 @@ public class Empleado {
         this.sueldo = sueldo;
     }
 
-    public String getHorarioE() {
-        return horarioE;
-    }
-
-    public void setHorarioE(String horarioE) {
-        this.horarioE = horarioE;
-    }
-
     public String getNum_RRHH() {
         return num_RRHH;
     }
@@ -75,11 +65,11 @@ public class Empleado {
         this.num_RRHH = num_RRHH;
     }
 
-    public String getEstado_dia() {
+    public boolean getEstado_dia() {
         return estado_dia;
     }
 
-    public void setEstado_dia(String estado_dia) {
+    public void setEstado_dia(boolean estado_dia) {
         this.estado_dia = estado_dia;
     }
     
