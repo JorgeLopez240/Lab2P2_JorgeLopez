@@ -12,7 +12,6 @@ public class Carro {
     
     
     // constructores
-
     public Carro() {
     }
 
@@ -35,7 +34,6 @@ public class Carro {
     
     
     //Mutadores
-
     public String getMarca() {
         return marca;
     }
@@ -94,7 +92,6 @@ public class Carro {
     
     
     //MA
-
     @Override
     public String toString() {
         return "Carro{" + "marca=" + marca + ", modelo=" + modelo + ", fecha_ingreso=" + fecha_ingreso + ", estado=" + estado + ", id_due\u00f1o=" + id_dueño + ", costoR=" + costoR + '}';

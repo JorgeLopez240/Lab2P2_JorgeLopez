@@ -117,9 +117,13 @@ public class Lab2P2_JorgeLopez {
                                 case 3:{ // Eliminar cliente
                                     System.out.print("Ingrese la posicion: ");
                                     int pos = lea.nextInt();
-                                    inventario.remove(pos);
-                                    System.out.println();
-                                    System.out.println("Eliminado exitosamente.");
+                                    if(pos<inventario.size()&& pos>=0){
+                                        inventario.remove(pos);
+                                        System.out.println();
+                                        System.out.println("Eliminado exitosamente.");
+                                    } else{
+                                        System.out.println("Posicion inexistente");
+                                    }
                                     
                                 }
                                 break;
@@ -136,7 +140,16 @@ public class Lab2P2_JorgeLopez {
                                 }
                                 break;
                                 case 5:{ // Listar carros por cliente
-                                    
+                                    System.out.print("Ingrese el id del cliente: ");
+                                    lea.nextLine();
+                                    String id = lea.nextLine();
+                                    String salida ="";
+                                    for (Object o : inventario) {
+                                        if(o instanceof Cliente  && ((Cliente)o).getNum_id().equalsIgnoreCase(id)){
+                                            salida +=o;
+                                        }
+                                    }
+                                    System.out.println(salida);
                                 }
                                 break;
                             }
@@ -230,9 +243,9 @@ public class Lab2P2_JorgeLopez {
                                                 int estado = lea.nextInt();
                                                 boolean estate;
                                                 if(estado==1){
-                                                    estate = true;
+                                                    ((Empleado)inventario.get(pos)).setEstado_dia(true);
                                                 } else{
-                                                    estate=false;
+                                                    ((Empleado)inventario.get(pos)).setEstado_dia(false);
                                                 }
                                             }
                                             break;
@@ -246,9 +259,14 @@ public class Lab2P2_JorgeLopez {
                                 case 3:{
                                     System.out.print("Ingrese la posicion: ");
                                     int pos = lea.nextInt();
-                                    inventario.remove(pos);
-                                    System.out.println();
-                                    System.out.println("Eliminado exitosamente.");
+                                    if(pos <inventario.size() && pos >=0){
+                                        inventario.remove(pos);
+                                        System.out.println();
+                                        System.out.println("Eliminado exitosamente.");
+                                    } else{
+                                        System.out.println("Posicion invalida.");
+                                    }
+                                    
                                 }
                                 break;
                                 case 4:{
@@ -325,11 +343,12 @@ public class Lab2P2_JorgeLopez {
                                     System.out.println("1) En espera de entrar a recepcion");
                                     System.out.println("2) En reparacion");
                                     System.out.println("3) En espera de pago de reparacion");
-                                    System.out.println("4) Salgo pagado");
+                                    System.out.println("4) Saldo pagado");
                                     System.out.println("5) En espera de ser entregado");
                                     System.out.println("6) entregado");
                                     System.out.print("Ingrese que tipo de estado desea listar:");
                                     int tipo = lea.nextInt();
+                                    System.out.println();
                                     switch(tipo){
                                         case 1:{
                                             String salida ="";
@@ -344,8 +363,8 @@ public class Lab2P2_JorgeLopez {
                                         case 2:{
                                             String salida ="";
                                             for (Object o : inventario) {
-                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("En reparacio")){
-                                                    salida += o;
+                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("En reparacion")){
+                                                    salida += o+"\n";
                                                 }
                                             }
                                             System.out.println(salida);
