@@ -274,6 +274,130 @@ public class Lab2P2_JorgeLopez {
                             System.out.print("Ingrese la opción que desea: ");
                             int opA = lea.nextInt();
                             System.out.println();
+                            switch(opA){
+                                case 1:{
+                                    String marca, modelo, año_creacion, fecha_ingreso, estado, id_dueño;
+                                    double costo_reparacion;
+                                    System.out.print("Ingrese la marca: ");
+                                    lea.nextLine();
+                                    marca = lea.nextLine();
+                                    System.out.print("Ingrese el modelo: ");
+                                    modelo = lea.nextLine();
+                                    System.out.print("Ingrese el año del carro: ");
+                                    
+                                    año_creacion = lea.nextLine();
+                                    System.out.print("Ingrese el estado: ");
+                                    
+                                    estado = lea.nextLine();
+                                    System.out.print("Ingrese el id del dueño: ");
+                                    
+                                    id_dueño = lea.nextLine();
+                                    System.out.print("Ingrese la fecha en que ingreso el carro: ");
+                                    
+                                    fecha_ingreso = lea.nextLine();
+                                    System.out.print("Ingrese el costo de la reparacion: ");
+                                    costo_reparacion = lea.nextDouble();
+                                    inventario.add(new Carro(marca, modelo, año_creacion, fecha_ingreso, estado, id_dueño, costo_reparacion));
+                                    System.out.println();
+                                    System.out.println("Carro agregado exitosamente.");
+                                }
+                                break;
+                                case 2:{
+                                    System.out.println("Ingrese la posicion del carro: ");
+                                    int pos = lea.nextInt();
+                                    if(inventario.get(pos) instanceof Carro){
+                                        System.out.println("Ingrese el nuevo estado: ");
+                                        lea.nextLine();
+                                        String estado = lea.nextLine();
+                                        double pag = 0.00;
+                                        ((Carro)inventario.get(pos)).setEstado(estado);
+                                        if(estado.equalsIgnoreCase("Saldo pagado") || estado.equalsIgnoreCase("pagado")){
+                                            ((Carro)inventario.get(pos)).setCostoR(pag);
+                                        }
+                                    } else{
+                                        System.out.println("No ha seleccionado un carro.");
+                                    }
+                                    System.out.println();
+                                    System.out.println("Estado modificado exitosamente.");
+                                }
+                                break;
+                                case 3:{
+                                    System.out.println("1) En espera de entrar a recepcion");
+                                    System.out.println("2) En reparacion");
+                                    System.out.println("3) En espera de pago de reparacion");
+                                    System.out.println("4) Salgo pagado");
+                                    System.out.println("5) En espera de ser entregado");
+                                    System.out.println("6) entregado");
+                                    System.out.print("Ingrese que tipo de estado desea listar:");
+                                    int tipo = lea.nextInt();
+                                    switch(tipo){
+                                        case 1:{
+                                            String salida ="";
+                                            for (Object o : inventario) {
+                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("En espera de entrar a recepcion")){
+                                                    salida += o;
+                                                }
+                                            }
+                                            System.out.println(salida);
+                                        }
+                                        break;
+                                        case 2:{
+                                            String salida ="";
+                                            for (Object o : inventario) {
+                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("En reparacio")){
+                                                    salida += o;
+                                                }
+                                            }
+                                            System.out.println(salida);
+                                        }
+                                        break;
+                                        case 3:{
+                                            String salida ="";
+                                            for (Object o : inventario) {
+                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("En espera de pago de reparacion")){
+                                                    salida += o;
+                                                }
+                                            }
+                                            System.out.println(salida);
+                                        }
+                                        break;
+                                        case 4:{
+                                            String salida ="";
+                                            for (Object o : inventario) {
+                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("saldo pagado")){
+                                                    salida += o;
+                                                }
+                                            }
+                                            System.out.println(salida);
+                                        }
+                                        break;
+                                        case 5:{
+                                            String salida ="";
+                                            for (Object o : inventario) {
+                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("En espera de ser entregado")){
+                                                    salida += o;
+                                                }
+                                            }
+                                            System.out.println(salida);
+                                        }
+                                        break;
+                                        case 6:{
+                                            String salida ="";
+                                            for (Object o : inventario) {
+                                                if(o instanceof Carro && ((Carro)o).getEstado().equalsIgnoreCase("Entregado")){
+                                                    salida += o;
+                                                }
+                                            }
+                                            System.out.println(salida);
+                                        }
+                                        break;
+                                    }
+                                }
+                                break;
+                                
+                                
+                            }
+                            
                         }
                         break;
                         case 4:{
